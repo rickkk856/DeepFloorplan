@@ -82,14 +82,13 @@ def main(args):
 		plt.imshow(floorplan_rgb/255.)
 		plt.show()
 
-		print("saved file at /content/DeepFloorplan/out/")
-		
 		#Plot & Save Processed
+		floorplan_rgb = np.arange(10000).reshape((512, 512))
 		fig = plt.imshow(floorplan_rgb/255.)
+		fig.set_size_inches(512,512)
 		plt.axis('off')
 		fig.axes.get_xaxis().set_visible(False)
 		fig.axes.get_yaxis().set_visible(False)
-		plt.savefig(("/content/DeepFloorplan/out/"+"{FILENAME}"), bbox_inches='tight', pad_inches = 0)
 
 if __name__ == '__main__':
 	FLAGS, unparsed = parser.parse_known_args()
