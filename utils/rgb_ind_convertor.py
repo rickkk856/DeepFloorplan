@@ -69,7 +69,7 @@ def rgb2ind(im, color_map=floorplan_room_map):
 def ind2rgb(ind_im, color_map=floorplan_room_map):
 	rgb_im = np.zeros((ind_im.shape[0], ind_im.shape[1], 3))
 
-	for i, rgb in color_map.iteritems():
+	for i, rgb in color_map.items(): #changed color_map.iteritems ----> for ----> color_map.items #due to python 2.7 to 3.5 update
 		rgb_im[(ind_im==i)] = rgb
 
 	return rgb_im
