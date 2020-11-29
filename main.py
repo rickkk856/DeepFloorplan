@@ -85,7 +85,7 @@ class MODEL(Network):
 		labels_cw_hot  = loader_dict['label_boundaries']
 
 		max_ep = max_step // num_batch
-		print 'max_step = {}, max_ep = {}, num_batch = {}'.format(max_step, max_ep, num_batch)
+		print ('max_step = {}, max_ep = {}, num_batch = {}'.format(max_step, max_ep, num_batch)) #sntax error corrected
 
 		logits1, logits2 = self.forward(images, init_with_pretrain_vgg=False)
 
@@ -134,11 +134,11 @@ class MODEL(Network):
 			# start queue 
 			threads = tf.train.start_queue_runners(sess=sess, coord=coord)
 
-			print "Start Training!"
+			print ("Start Training!") # Snytax error corrected
 			total_times = 0			
 
-			for ep in xrange(max_ep): # epoch loop
-				for n in xrange(num_batch): # batch loop
+			for ep in range(max_ep): # epoch loop  #SYNTAX ERROR CORRECTED
+				for n in range(num_batch): # batch loop #SYNTAX ERROR CORRECTED
 					tic = time.time()
 					# [loss_value, update_value, summaries] = sess.run([loss, optim, merged])	
 					[loss_value, update_value] = sess.run([loss, optim])	
@@ -148,11 +148,11 @@ class MODEL(Network):
 
 					step = int(ep*num_batch + n)
 					# write log 
-					print 'step {}: loss = {:.3}; {:.2} data/sec, excuted {} minutes'.format(step,
-						loss_value, 1.0/duration, int(total_times/60))
+					print ('step {}: loss = {:.3}; {:.2} data/sec, excuted {} minutes'.format(step,
+						loss_value, 1.0/duration, int(total_times/60)) ## Syntax error corrected
 					# writer.add_summary(summaries, global_step=step)
 				# save model parameters after 2 epoch training
-				if ep % 2 == 0:
+				if ep % 2 == 0:  ## Still Needs Debugging 
 					saver.save(sess, self.log_dir+'/model', global_step=ep)
 					self.evaluate(sess=sess, epoch=ep)
 			saver.save(sess, self.log_dir+'/model', global_step=max_ep)
