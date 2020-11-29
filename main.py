@@ -58,19 +58,19 @@ class MODEL(Network):
 
 		m_c = [] # index mask
 		n_c = [] # each class foreground pixels
-		for c in xrange(num_classes):
+		for c in range(num_classes):
 			m_c.append(tf.cast(tf.equal(ind, c), dtype=tf.int32))
 			n_c.append(tf.cast(tf.reduce_sum(m_c[-1]), dtype=tf.float32))
 
 		# compute count
 		c = []
-		for i in xrange(num_classes):
+		for i in range(num_classes):
 			c.append(total - n_c[i])
 		tc = tf.add_n(c)
 
 		# use for compute loss
 		loss = 0.
-		for i in xrange(num_classes): 
+		for i in range(num_classes): 
 			w = c[i] / tc
 			m_c_one_hot = tf.one_hot((i*m_c[i]), num_classes, axis=-1)
 			y_c = m_c_one_hot*y
@@ -245,7 +245,7 @@ class MODEL(Network):
 		n = len(paths)
 
 		hist = np.zeros((num_of_classes, num_of_classes))
-		for i in xrange(n):
+		for i in range(n):
 			im = imread(image_paths[i], mode='RGB')
 			# for fuse label
 			dd = imread(gt2_paths[i], mode='L')
@@ -280,7 +280,7 @@ class MODEL(Network):
 
 		file = open('EVAL_'+self.log_dir, 'a')
 		print>>file, 'Model at epoch {}: overall accuracy = {:.4}, mean_acc = {:.4}'.format(epoch, overall_acc, mean_acc9)
-		for i in xrange(mean_acc.shape[0]):
+		for i in range(mean_acc.shape[0]):
 			if i not in [7 ,8]: # ingore class 7 & 8 
 				print>>file, '\t\tepoch {}: {}th label: accuracy = {:.4}'.format(epoch, i, mean_acc[i])		
 		file.close()
