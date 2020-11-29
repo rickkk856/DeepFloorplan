@@ -10,13 +10,13 @@ import numpy as np
 from scipy.misc import imread, imresize, imsave
 from matplotlib import pyplot as plt
 
-sys.path.append('./utils/')
+sys.path.append('/content/DeepFloorplan/utils/')
 from rgb_ind_convertor import *
 from util import *
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--result_dir', type=str, default='./out',
+parser.add_argument('--result_dir', type=str, default='/content/input_dir',
 					help='The folder that save network predictions.')
 
 def post_process(input_dir, save_dir, merge=True):
