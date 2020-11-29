@@ -83,9 +83,7 @@ def main(args):
 		plt.show()
 
 		#Plot & Save Processed
-		floorplan_rgb = np.arange(10000).reshape((512, 512))
 		fig = plt.imshow(floorplan_rgb/255.)
-		fig.set_size_inches(512,512)
 		plt.axis('off')
 		fig.axes.get_xaxis().set_visible(False)
 		fig.axes.get_yaxis().set_visible(False)
