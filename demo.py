@@ -75,10 +75,13 @@ def main(args):
 		floorplan[room_boundary==2] = 10
 		floorplan_rgb = ind2rgb(floorplan)
 
-		# plot results
-		plt.subplot(121)
+		# plot original
+		plt.subplot()
 		plt.imshow(im)
-		plt.subplot(122)
+		plt.show()  
+
+		# plot processed results
+		plt.subplot()
 		plt.imshow(floorplan_rgb/255.)
 		plt.show()
 
