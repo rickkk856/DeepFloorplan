@@ -60,7 +60,7 @@ floorplan_fuse_map_figure = {
 def rgb2ind(im, color_map=floorplan_room_map):
 	ind = np.zeros((im.shape[0], im.shape[1]))
 
-	for i, rgb in color_map.iteritems():
+	for i, rgb in color_map.items(): #changed color_map.iteritems ----> for ----> color_map.items #due to python 2.7 to 3.5 update
 		ind[(im==rgb).all(2)] = i
 
 	# return ind.astype(int) # int => int64
