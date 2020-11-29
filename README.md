@@ -1,7 +1,7 @@
 # This is an adaptation of https://github.com/zlzeng/DeepFloorplan for Google Colab (Python 3.5)
 
 OPEN HERE
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Tzrg3gs1ELdkXwSuBDlG1fI_iRY354KV?usp=sharing]
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1Tzrg3gs1ELdkXwSuBDlG1fI_iRY354KV?usp=sharing)]
 
 
 Basic usage:
