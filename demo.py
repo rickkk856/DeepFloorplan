@@ -75,15 +75,21 @@ def main(args):
 		floorplan[room_boundary==2] = 10
 		floorplan_rgb = ind2rgb(floorplan)
 
-		# plot original
-		plt.subplot()
+		# plot results BOTH
+		plt.subplot(121)
 		plt.imshow(im)
-		plt.show()  
-
-		# plot processed results
-		plt.subplot()
+		plt.subplot(122)
 		plt.imshow(floorplan_rgb/255.)
 		plt.show()
+
+		print("saved file at /content/DeepFloorplan/out/")
+		
+		#Plot & Save Processed
+		fig = plt.imshow(floorplan_rgb/255.)
+		plt.axis('off')
+		fig.axes.get_xaxis().set_visible(False)
+		fig.axes.get_yaxis().set_visible(False)
+		plt.savefig(("/content/DeepFloorplan/out/"+"{FILENAME}"), bbox_inches='tight', pad_inches = 0)
 
 if __name__ == '__main__':
 	FLAGS, unparsed = parser.parse_known_args()
