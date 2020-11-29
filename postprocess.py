@@ -23,13 +23,13 @@ def post_process(input_dir, save_dir, merge=True):
 	if not os.path.exists(save_dir):
 		os.mkdir(save_dir)
 
-	input_paths = sorted(glob.glob(os.path.join(input_dir, '*.png')))
-	names = [i.split('/')[-1] for i in input_paths]
+	input_paths = sorted(glob.glob(os.path.join(input_dir, '*.*'))) #use (input_dir, '*.png') or (input_dir, '*.jpg') for PNG/JPG files  and (input_dir, '*.*') for Any type
+ 	names = [i.split('/')[-1] for i in input_paths]
 	out_paths = [os.path.join(save_dir, i) for i in names]
 
 	n = len(input_paths)
 	# n = 1
-	for i in xrange(n):
+	for i in range(n): #changed xrange for range
 		im = imread(input_paths[i], mode='RGB')
 		im_ind = rgb2ind(im, color_map=floorplan_fuse_map)
 		# seperate image into room-seg & boundary-seg
@@ -64,7 +64,7 @@ def post_process(input_dir, save_dir, merge=True):
 		# ignore the background mislabeling
 		new_rm_ind = fuse_mask*new_rm_ind
 
-		print 'Saving {}th refined room prediciton to {}'.format(i, out_paths[i])
+		print ('Saving {}th refined room prediciton to {}'.format(i, out_paths[i])) #syntax error corrected
 		if merge:
 			new_rm_ind[bd_ind==9] = 9
 			new_rm_ind[bd_ind==10] = 10
