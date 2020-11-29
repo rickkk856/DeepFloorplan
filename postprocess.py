@@ -18,13 +18,13 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument('--result_dir', type=str, default='/content/input_dir',
 					help='The folder that save network predictions.')
-
+## use (input_dir, '*.png') or (input_dir, '*.jpg') for PNG/JPG files  and (input_dir, '*.*') for Any type
 def post_process(input_dir, save_dir, merge=True):
 	if not os.path.exists(save_dir):
 		os.mkdir(save_dir)
 
-	input_paths = sorted(glob.glob(os.path.join(input_dir, '*.*'))) #use (input_dir, '*.png') or (input_dir, '*.jpg') for PNG/JPG files  and (input_dir, '*.*') for Any type
- 	names = [i.split('/')[-1] for i in input_paths]
+	input_paths = sorted(glob.glob(os.path.join(input_dir, '*.*')))
+	names = [i.split('/')[-1] for i in input_paths]
 	out_paths = [os.path.join(save_dir, i) for i in names]
 
 	n = len(input_paths)
