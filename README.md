@@ -1,3 +1,12 @@
+# This is an adaptation of https://github.com/zlzeng/DeepFloorplan for Google Colab (Python 3.5)
+
+Basic usage:
+
+```bash
+!git clone https://github.com/rickkk856/DeepFloorplan
+!pip3 install -r /content/DeepFloorplan/requirements.txt
+```
+
 # Deep Floor Plan Recognition using a Multi-task Network with Room-boundary-Guided Attention
 By Zhiliang ZENG, Xianzhi LI, Ying Kin Yu, and Chi-Wing Fu
 
